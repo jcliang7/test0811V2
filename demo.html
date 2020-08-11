@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>我的計數器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <h2 style="color:red">{{ans}}</h2>
+        Set Number: <input v-model="step"></input>
+    </br>
+        <button v-on:click="plusN">+{{step}}</button>
+        <button v-on:click="minusN">-{{step}}</button>
+        <button>Reset</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'My Counter!',
+                ans: 0,
+                step: 1,
+            },
+            methods:{
+                plusN: function(){
+                    //this.ans += this.step;
+                    this.ans += parseInt(this.step);
+                },
+                minusN: function(){
+                    this.ans -= this.step;
+                },
+                reset: function(){
+                    this.ans = 0;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

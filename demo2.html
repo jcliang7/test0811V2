@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>我的計數器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        //<h1>{{ message }}</h1>
+        <h2 style="color:red">{{ans}}</h2>
+       
+    </br>
+    <button v-on:click="showNum('7')">7</button>
+    <button v-on:click="showNum('8')">8</button>
+    <button v-on:click="showNum('9')">9</button>
+    <button v-on:click="showNum('/')">/</button>
+    </br>
+    <button v-on:click="showNum('4')">4</button>
+    <button v-on:click="showNum('5')">5</button>
+    <button v-on:click="showNum('6')">6</button>
+    <button v-on:click="showNum('*')">*</button>
+    </br>
+    <button v-on:click="showNum('3')">3</button>
+    <button v-on:click="showNum('2')">2</button>
+    <button v-on:click="showNum('1')">1</button>
+    <button v-on:click="showNum('-')">-</button>
+    </br>
+    <button v-on:click="showNum('0')">0</button>
+    <button v-on:click="showNum('.')">.</button>
+    <button v-on:click="equal('=')">=</button>
+    <button v-on:click="showNum('+')">+</button>
+    <button v-on:click="reset">Reset</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'My Counter!',
+                ans: '',
+                tmpAns: '',
+                step: 1,
+            },
+            methods:{
+                showNum: function(n){
+                                   
+                    this.ans += n;
+                    //this.ans = parseInt(str);
+                },
+                reset: function(){
+                    this.ans = '';
+                    this.tmpAns = '';
+                },
+                equal: function(){
+                    this.ans = eval(this.ans);
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
